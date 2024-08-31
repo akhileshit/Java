@@ -1,0 +1,13 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Calculator ref;
+		
+		CallCalci.acceptCalci(new SimpleCalculator());
+		CallCalci.acceptCalci(new AdvanceCalculator());
+		CallCalci.acceptCalci(new ScientificCalculator());
+	
+	}
+
+}

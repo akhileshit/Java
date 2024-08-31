@@ -1,0 +1,5 @@
+
+public interface Sample3 {
+	void add();
+	void sub();
+}

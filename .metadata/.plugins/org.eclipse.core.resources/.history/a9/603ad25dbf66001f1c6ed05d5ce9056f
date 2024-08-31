@@ -1,0 +1,6 @@
+
+public abstract class Calculator {
+	void mod() {
+		System.out.println("This is a mod function");
+	}
+}

@@ -1,0 +1,28 @@
+
+public class MyCalculator extends Demo implements AbstractCalculator {
+
+	@Override
+	public void addition() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void subtraction() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void multplication() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void division() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

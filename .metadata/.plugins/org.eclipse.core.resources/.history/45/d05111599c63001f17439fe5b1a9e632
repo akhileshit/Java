@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class ScientificCalculator implements Calculator {
+
+	Scanner scan = new Scanner(System.in);
+	@Override
+	public void add() {
+		System.out.println("Enter two numbers to Add (+ve INTEGERS ONLY) ");
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		if (a==0 || b==0) {
+			System.out.println("Seriously??");
+			return;
+		}
+		System.out.println(a + b);
+	}
+
+	@Override
+	public void sub() {
+		System.out.println("Enter two numbers to Add (+ve INTEGERS ONLY) ");
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		while (a<b) {
+			System.out.println("Please enter a > b");
+			sub();
+		}
+		System.out.println(a - b);
+	}
+
+	@Override
+	public void mul() {
+		System.out.println("Enter two numbers to multiply (+ve INTEGERS ONLY) ");
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		System.out.println(a * b);
+	}
+
+	@Override
+	public void div() {
+		System.out.println("Enter two numbers to divide (+ve INTEGERS ONLY) ");
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		while (b==0) {
+			System.out.println("b cannot be zero");
+			div();
+		}
+		System.out.println(a / b);
+	}
+
+	@Override
+	public void mod() {
+		System.out.println("Enter two numbers to get mod. (+ve INTEGERS ONLY) ");
+		int a = scan.nextInt();
+		int b = scan.nextInt();
+		while (a<b) {
+			System.out.println("Please enter a > b");
+			sub();
+		}
+		System.out.println(a % b);
+	}
+
+}

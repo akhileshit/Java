@@ -1,0 +1,4 @@
+
+public abstract class AbsClass {
+ public abstract  void  add();
+}

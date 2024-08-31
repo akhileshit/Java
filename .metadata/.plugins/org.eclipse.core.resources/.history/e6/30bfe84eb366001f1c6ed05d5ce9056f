@@ -1,0 +1,4 @@
+
+public interface Sample5 extends Sample3, Sample4 { // No errors. So permitted
+
+}
