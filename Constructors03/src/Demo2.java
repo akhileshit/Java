@@ -8,6 +8,7 @@ public class Demo2 {
 	}
 	
 	public Demo2(String x) {
+		super();
 		m=x;
 	}
 }
