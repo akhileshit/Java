@@ -1,4 +1,0 @@
-
-public interface Demo2 implements Demo1 {
-
-}

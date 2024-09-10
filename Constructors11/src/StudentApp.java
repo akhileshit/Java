@@ -1,17 +1,19 @@
 
-public class StudentApp { // Counting # Objects created using Instance block
-
+public class StudentApp { // Copy Constructors
 	public static void main(String[] args) {
-		Student s1 = new Student();
-		Student s2 = new Student();
-		Student s3 = new Student();
+		Student s = new Student("Omkar", 22, 99);
+		s.display();
 		
-		System.out.println("# Objects created for Student class is " + Student.count);
+		Student s1 = new Student(s); // Copying old data to new object by giving old object reference
 		
-		new Student();
-		new Student();
-		new Student();
-		System.out.println("# Objects created for Student class is " + Student.count);
+		// now modify new object
+		System.out.println("Showing Modified data:===================");
+		s1.age = 24;
+		s1.marks = 100;
+		s1.display();
+		
+		// Access old data using s !!!!!!!!
+		System.out.println("Showing Old Data:=========================");
+		s.display();
 	}
-
 }

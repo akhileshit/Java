@@ -2,9 +2,21 @@
 public class Student {
 	String name;
 	int age;
-	static int count = 0;
+	int marks;
 	
-	{
-		count++;
+	public Student(String name, int age, int marks) {
+		this.name = name;
+		this.age = age;
+		this.marks = marks;
+	}
+	
+	public Student(Student ref) { // COPY CONSTRUCTOR
+		this.name = ref.name;
+		this.age = ref.age;
+		this.marks = ref.marks;
+	}
+	
+	void display() {
+		System.out.println(name + " " + age + " " + marks);
 	}
 }

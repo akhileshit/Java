@@ -1,6 +1,6 @@
-package p1;
+package p1;  // Access Specifiers public, protected, default and private
 
-public class Demo1 {
+public class Demo1 { // package 1
 	
 	public int a=10;
 	
