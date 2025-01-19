@@ -27,14 +27,14 @@ public class Arrays10 { // Leet-code 27th problem "Remove Element"      // Has b
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int[] arr = new int[4];
+		int[] arr = new int[6]; // Specify array length
 		System.out.println("Enter " + arr.length + " elements:");
 		for (int i=0; i<arr.length; i++ ) {
 			arr[i] = scan.nextInt();
 		}
 		scan.close();
 		
-		int count = new Arrays10().removeElement(arr, 3);
+		int count = new Arrays10().removeElement(arr, 1); // Specify element to be removed
 		System.out.println("Count = " + count);
 	}
 }

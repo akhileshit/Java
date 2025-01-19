@@ -8,4 +8,8 @@ public class Demo3Exec implements Demo3 { // Output for Demo3
 		Demo3.display2(); // because of static
 		display3();
 	}
+	
+	public void display4() {
+		System.out.println("This is from abstract method");
+	}
 }

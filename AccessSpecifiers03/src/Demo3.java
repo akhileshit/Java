@@ -12,6 +12,8 @@ public interface Demo3 { // private method in interface
 	default void display3() { // other method inside interface
 		display();
 	}
+
+	abstract void display4() ; 
 	
 }
 

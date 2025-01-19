@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Arrays09 { // find # unique elements in the array
+public class Arrays09 { // find # unique elements in a SORTED array
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int[] arr = new int[5];
