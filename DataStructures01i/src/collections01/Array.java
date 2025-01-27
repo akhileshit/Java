@@ -1,6 +1,6 @@
 package collections01;
 
-public class Array {
+public class Array { // Array Implementation
 	private int[] arr;
 	
 	public Array(int size) {
@@ -33,14 +33,14 @@ public class Array {
 		System.out.println();
 	}
 	
-	public int search(int[] arr, int key) {
-		sort(arr);
+	public void search(int key) {
 		int low=0, high=arr.length-1, mid=0;
 		while (low <= high ) {
 			mid = (low+high)/2;
 			
 			if (key == arr[mid]) {
-				return mid;
+				System.out.println("KEY FOUND @ POSITION " + (mid+1));
+				return;
 			}
 			
 			else if (key < arr[mid]) {
@@ -53,10 +53,10 @@ public class Array {
 				low = mid+1;
 			}
 		}
-		return -1;
+		System.out.println("KEY NOT FOUND");
 	}
 	
-	public void sort(int[] arr) {
+	public void sort() {
 		int min=0, minIndex=0;
 		for (int i=0; i<=arr.length-2; i++) {
 			min = arr[i];
@@ -72,6 +72,7 @@ public class Array {
 			arr[i] = arr[minIndex];
 			arr[minIndex] = temp;
 		}
+		System.out.println("SORTING SUCCESSFUL");
 	}
 	
 	
