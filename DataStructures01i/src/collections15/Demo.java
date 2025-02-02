@@ -16,6 +16,8 @@ public class Demo { // ArrayDeque
 		dq.add(25);
 		dq.add(14);
 		dq.add(15);
+		dq.add(15);
+		//dq.add(null);
 		
 		System.out.println(dq);
 		
@@ -31,7 +33,5 @@ public class Demo { // ArrayDeque
 		
 		// dq.add(1, 55); // Method Not present only
 	 
-		
-		
 	}
 }

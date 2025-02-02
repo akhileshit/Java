@@ -11,6 +11,8 @@ public class Demo { // LinkedList
 		ll.add(15);
 		ll.add(11);
 		ll.add(50);
+		ll.add(50);
+		ll.add(null);
 		System.out.println(ll);
 		
 		System.out.println(ll.contains(175));

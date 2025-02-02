@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Akhilesh S.DESKTOP-DGN3NBK/Desktop/PersonComparable.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
