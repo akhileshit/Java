@@ -26,7 +26,7 @@ class Library {
 public class Experiment01 {
 	public static void main(String[] args) {
 		 Library myLibrary = new Library();
-		 myLibrary.libraryBook.title = "Hello";
+		 myLibrary.libraryBook.title = "Hello"; // DON'T TRY TO BE OVERSMART. BCZ IT IS NOT SAMRT AT ALL. THE PERSON WHO DON'T KNOW THE CONCEPT WILL WRITE LIKE THIS!!
 		 myLibrary.libraryBook.author = "John";
 		 
 		 myLibrary.showBook();
@@ -108,7 +108,7 @@ public class Experiment01 {
 //}
 
 //*******************************************************************************
-// AGGREGATION
+// AGGREGATION IN CLASS LIBRARY
 // ALSO SHOWS THE STATIC AND NON-STATIC NATURE
 // TELLS CREATING OBJECT OF ONE CLASS INSIDE ANOTHER CLASS(COMPOSITION) IS IMPORTANT, AND ONLY REFERENCES 
 //DOESN'T WORK TO ACCESS IT LIKE THE ABOVE IF THE METHODS AND VARIABLES ARE NON-STATIC.

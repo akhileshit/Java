@@ -22,9 +22,14 @@ public class Eagle extends Bird {
 	}
 	
 	@Override
-	void foodHabit() throws ArithmeticException, NegativeArraySizeException, IllegalArgumentException, InputMismatchException  { // Throwing different exception("Unchecked") (hence no error)
+	void foodHabit() throws ArithmeticException, NegativeArraySizeException, IllegalArgumentException, InputMismatchException, IllegalFormatException  { // Throwing different exception("Unchecked") (hence no error)
 		System.out.println("Eagle Bird is Carnivorous");
+	}
+	
+	void dummy() throws RuntimeException { // Can Throw Any UnChecked Exception. Parent not throwing anything!
+		System.out.println("Dummy Dummy");
 	}
 }
 
 // For Checked Exception in parent, u can also throw any unchecked e in child!!!
+// But we can handle (try-catch) any exceptions inside any child class. That is possible.

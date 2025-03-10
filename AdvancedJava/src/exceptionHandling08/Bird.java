@@ -20,5 +20,9 @@ public class Bird { // Method Overriding ft. Exceptions
 	void foodHabit() throws ArrayIndexOutOfBoundsException {
 		System.out.println("Bird has a Food Habit");
 	}
+	
+	void dummy() {
+		System.out.println("dummy");
+	}
 }
 
