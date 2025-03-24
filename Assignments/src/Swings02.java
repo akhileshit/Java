@@ -34,9 +34,10 @@ public class Swings02  implements ActionListener { // Adding 2 numbers using JFr
 		frame.add(b);
 		frame.add(l3);
 		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(250, 400);
-		frame.setLayout(new FlowLayout());
-		//frame.setLayout(null);
+		//frame.setLayout(new FlowLayout());
+		frame.setLayout(null);
 		frame.setVisible(true);
 
 	}

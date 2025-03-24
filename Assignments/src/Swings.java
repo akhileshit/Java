@@ -15,6 +15,8 @@ public class Swings {
 		
 		frame.setSize(500, 600); // to set the frame size
 		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //mandatory to exit the program if JFrame is closed
+		
 		frame.setLayout(null); // mandatory or else button occupies complete frame
 		
 		frame.setVisible(true); // mandatory or else frame itself is not visible
