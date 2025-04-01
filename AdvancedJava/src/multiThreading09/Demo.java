@@ -1,6 +1,6 @@
 package multiThreading09;
 
-public class Demo { // Interrupting a Thread      " interrupt() "
+public class Demo { // Interrupting a Thread (while sleeping)     " interrupt() "
 
 	public static void main(String[] args) {
 		try {

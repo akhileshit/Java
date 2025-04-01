@@ -6,17 +6,18 @@ import java.awt.event.ActionListener;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.*;
 
-public class StackImplementation extends JPanel implements ActionListener{
+public class StackImplementation implements ActionListener{
 	
 	JLabel sizeLabel, elementLabel, displayLabel;
 	JTextField sizeText, elementText, displayText;
 	JButton createStackButton, pushElementButton, displayButton, popButton, backButton;
+	JFrame frame;
 	Stacks stack;
-	Navigator navigator;
+	Home homeInstance;
 	
-	public StackImplementation(Navigator navigator) { // Constructor
-		this.navigator = navigator;
-
+	public StackImplementation(Home home) { // Constructor
+		
+		homeInstance = home;
 		
 		sizeLabel = new JLabel("Size:");
 		sizeText = new JTextField(10);
@@ -40,29 +41,29 @@ public class StackImplementation extends JPanel implements ActionListener{
 		backButton.addActionListener(this);
 			
 		
+		frame = new JFrame();
+		frame.add(sizeLabel);
+		frame.add(sizeText);
+		frame.add(createStackButton);
 		
-		add(sizeLabel);
-		add(sizeText);
-		add(createStackButton);
+		frame.add(elementLabel);
+		frame.add(elementText);
+		frame.add(pushElementButton);
 		
-		add(elementLabel);
-		add(elementText);
-		add(pushElementButton);
+		frame.add(displayLabel);
+		frame.add(displayText);
+		frame.add(displayButton);
 		
-		add(displayLabel);
-		add(displayText);
-		add(displayButton);
+		frame.add(popButton);
 		
-		add(popButton);
-		
-		add(backButton);
+		frame.add(backButton);
 		
 		
 		
-		//panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//setSize(250,400);
-		setLayout(new FlowLayout());
-		//setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(250,400);
+		frame.setLayout(new FlowLayout());
+		frame.setVisible(true);
 		
 	}
 	
@@ -81,11 +82,11 @@ public class StackImplementation extends JPanel implements ActionListener{
 		if (e.getSource() == createStackButton) {
 			int size = Integer.parseInt(sizeText.getText());
 			if (size < 0) {
-				showMessageDialog(this, "Please enter +ve Integer for size.", "Bro!!" ,JOptionPane.ERROR_MESSAGE);
+				showMessageDialog(frame, "Please enter +ve Integer for size.", "Bro!!" ,JOptionPane.ERROR_MESSAGE);
 			}
 			else {
 				stack = new Stacks(size);
-				showMessageDialog(this, "Stack Created", "Information", JOptionPane.INFORMATION_MESSAGE);  // (parentComponent, message, title, mssgType)
+				showMessageDialog(frame, "Stack Created", "Information", JOptionPane.INFORMATION_MESSAGE);  // (parentComponent, message, title, mssgType)
 			}
 		}
 		//
@@ -93,17 +94,17 @@ public class StackImplementation extends JPanel implements ActionListener{
 			Object ele = elementText.getText();
 			int msg = stack.push(ele);
 			if (msg == -1) {
-				showMessageDialog(this, "Cannot push. Stack is Full", "Stop it Bro!!", JOptionPane.WARNING_MESSAGE);
+				showMessageDialog(frame, "Cannot push. Stack is Full", "Stop it Bro!!", JOptionPane.WARNING_MESSAGE);
 			}
 			else {
-				showMessageDialog(this, "Pushed", "Information", JOptionPane.INFORMATION_MESSAGE);
+				showMessageDialog(frame, "Pushed", "Information", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 		//
 		else if (e.getSource() == displayButton) {
 			String text = stack.toString();
 			if (text.isEmpty()) {
-				showMessageDialog(this, "Stack is Empty", "Bro!!", JOptionPane.WARNING_MESSAGE);
+				showMessageDialog(frame, "Stack is Empty", "Bro!!", JOptionPane.WARNING_MESSAGE);
 			}
 			else {
 				displayText.setText(text);
@@ -113,19 +114,18 @@ public class StackImplementation extends JPanel implements ActionListener{
 		else if (e.getSource() == popButton) {
 			int msg = stack.pop();
 			if (msg == -1) {
-				showMessageDialog(this, "Cannot pop. Stack is Empty", "Stop it Bro!!", JOptionPane.WARNING_MESSAGE);
+				showMessageDialog(frame, "Cannot pop. Stack is Empty", "Stop it Bro!!", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 		
 		else if (e.getSource() == backButton) {
-			//homeInstance.panel.setVisible(true);
-			//panel.dispose();
-			navigator.showCard("Home");
+			homeInstance.frame.setVisible(true);
+			frame.dispose();
 		}
 		}
 		
 		catch (NullPointerException | NumberFormatException ne) {
-			showMessageDialog(this, "Please specify the \"Size\" of the Stack with +ve Integer and click on \"Create\"", "Bro!!" ,JOptionPane.ERROR_MESSAGE);
+			showMessageDialog(frame, "Please specify the \"Size\" of the Stack with +ve Integer and click on \"Create\"", "Bro!!" ,JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

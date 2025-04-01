@@ -6,18 +6,18 @@ import java.awt.event.ActionListener;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.*;
 
-public class ArrayImplementation extends JPanel implements ActionListener {
+public class ArrayImplementation implements ActionListener {
 	
 	JLabel sizeLabel, addPositionLabel, elementLabel, deletePositionLabel, arrayContentsLabel;
 	JTextField sizeText, addPositionText, elementText, deletePositionText, arrayContentsText;
 	JButton createArrayButton, insertButton, deleteButton, displayButton, backButton;
-	//JPanel panel;
+	JFrame frame;
 	Arrays array;
-	Navigator navigator;
+	Home homeInstance;
 	
-	public ArrayImplementation(Navigator navigator) { // Constructor
+	public ArrayImplementation(Home home) { // Constructor
 		
-		this.navigator = navigator;
+		homeInstance = home;
 		
 		sizeLabel = new JLabel("Size:");
 		sizeText = new JTextField(12);
@@ -45,31 +45,32 @@ public class ArrayImplementation extends JPanel implements ActionListener {
 		backButton.addActionListener(this);
 		
 		
-		add(sizeLabel);
-		add(sizeText);
-		add(createArrayButton);
+		frame = new JFrame();
+		frame.add(sizeLabel);
+		frame.add(sizeText);
+		frame.add(createArrayButton);
 		
-		add(addPositionLabel);
-		add(addPositionText);
-		add(elementLabel);
-		add(elementText);
-		add(insertButton);
+		frame.add(addPositionLabel);
+		frame.add(addPositionText);
+		frame.add(elementLabel);
+		frame.add(elementText);
+		frame.add(insertButton);
 		
-		add(deletePositionLabel);
-		add(deletePositionText);
-		add(deleteButton);
+		frame.add(deletePositionLabel);
+		frame.add(deletePositionText);
+		frame.add(deleteButton);
 		
-		add(arrayContentsLabel);
-		add(arrayContentsText);
-		add(displayButton);
+		frame.add(arrayContentsLabel);
+		frame.add(arrayContentsText);
+		frame.add(displayButton);
 		
-		add(backButton);
+		frame.add(backButton);
 		
 		
-		//setLayout(new FlowLayout());
-		//setSize(280, 400);
-		//setVisible(true);
-		//panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new FlowLayout());
+		frame.setSize(280, 400);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	
@@ -81,18 +82,18 @@ public class ArrayImplementation extends JPanel implements ActionListener {
 		if (e.getSource() == createArrayButton) {
 			int size = Integer.parseInt(sizeText.getText());
 			if (size <= 0) {
-				showMessageDialog(this, "\"Size\" should be > 0", "Bro!!", 0);
+				showMessageDialog(frame, "\"Size\" should be > 0", "Bro!!", 0);
 			}
 			else {
 				array = new Arrays(size);
-				showMessageDialog(this, "Array Created.", "Information", 1);
+				showMessageDialog(frame, "Array Created.", "Information", 1);
 			}
 		}
 		//
 		else if (e.getSource() == insertButton) {
 			try {
 			if (addPositionText.getText().isEmpty()) {
-				showMessageDialog(this, "Please specify the \"Position\"", "Hey", 2);
+				showMessageDialog(frame, "Please specify the \"Position\"", "Hey", 2);
 				return;
 			}
 			
@@ -100,36 +101,36 @@ public class ArrayImplementation extends JPanel implements ActionListener {
 			Object ele = elementText.getText();
 			int msg = array.insert(pos, ele);
 			if (msg == -1) {
-				showMessageDialog(this, "Please specify \"Position\" >= 0 and < \"Size\"", "Bro!!", 0);
+				showMessageDialog(frame, "Please specify \"Position\" >= 0 and < \"Size\"", "Bro!!", 0);
 			}
 			else if (msg == 1) {
-				showMessageDialog(this, "Element Inserted.", "Information", 1);	
+				showMessageDialog(frame, "Element Inserted.", "Information", 1);	
 			}
 			}
 			
 			catch (NumberFormatException nfe) {
-				showMessageDialog(this, "Please specify only an integer >= 0 and < \"Size\" for \"Position\"", "Bro!!", 0);
+				showMessageDialog(frame, "Please specify only an integer >= 0 and < \"Size\" for \"Position\"", "Bro!!", 0);
 			}
 		}
 		//
 		else if (e.getSource() == deleteButton) {
 			try {
 				if (deletePositionText.getText().isEmpty()) {
-					showMessageDialog(this, "Please specify the \"Position\"", "Hey", 2);
+					showMessageDialog(frame, "Please specify the \"Position\"", "Hey", 2);
 					return;
 				}
 				
 				int pos = Integer.parseInt(deletePositionText.getText());
 				int msg = array.delete(pos);
 				if (msg == -1) {
-					showMessageDialog(this, "Please specify \"Position\" >= 0 and < \"Size\"", "Bro!!", 0);
+					showMessageDialog(frame, "Please specify \"Position\" >= 0 and < \"Size\"", "Bro!!", 0);
 				}
 				else if (msg == 1) {
-					showMessageDialog(this, "Element Deleted.", "Information", 1);	
+					showMessageDialog(frame, "Element Deleted.", "Information", 1);	
 				}
 			}
 			catch (NumberFormatException nfe) {
-				showMessageDialog(this, "Please specify only an integer >= 0 and < \"Size\" for \"Position\"", "Bro!!", 0);
+				showMessageDialog(frame, "Please specify only an integer >= 0 and < \"Size\" for \"Position\"", "Bro!!", 0);
 			}
 		}
 		//
@@ -138,12 +139,13 @@ public class ArrayImplementation extends JPanel implements ActionListener {
 		}
 		
 		else if (e.getSource() == backButton) {
-			navigator.showCard("Home");
+			homeInstance.frame.setVisible(true);
+			frame.dispose();
 		}
 		}
 		
 		catch (NullPointerException | NumberFormatException ne) {
-			showMessageDialog(this, "Please specify the \"Size\" with +ve integer and click on \"Create\"", "Bro!! First Create the Array", 0);
+			showMessageDialog(frame, "Please specify the \"Size\" with +ve integer and click on \"Create\"", "Bro!! First Create the Array", 0);
 		}
 	}
 	

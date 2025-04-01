@@ -1,6 +1,6 @@
 package multiThreading11;
 
-public class Demo { // Solving Race-Condition using "Daemon-Threads"
+public class Demo { // Solving this type-of Race-Condition using "Daemon-Threads"
 	
 	public static void main(String[] args) {
 		
@@ -19,8 +19,8 @@ public class Demo { // Solving Race-Condition using "Daemon-Threads"
 		t3.setDaemon(true);
 		
 		// Decrease the priority of Daemon-Threads
-		t2.setPriority(8);
-		t3.setPriority(9);
+//		t2.setPriority(8);
+//		t3.setPriority(9);
 		
 		t1.start();
 		t2.start();

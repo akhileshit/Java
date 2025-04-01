@@ -39,7 +39,7 @@ public class Demo1 implements Runnable {
 		int a=10;
 		int b=20;
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(5000);  // Sleeping for 5 seconds!
 		} 
 		catch (InterruptedException e) {
 			
