@@ -1,0 +1,31 @@
+package multiThreading16;
+
+public class PCProblemSoln { // Producer-Consumer Problems "Solution" in MultiThreading
+	
+	public static void main(String[] args) {
+		
+		Factory factory = new Factory();
+		Producer producer = new Producer(factory);
+		Consumer consumer = new Consumer(factory);
+		
+		producer.start();
+		consumer.start();
+		
+	}
+}
+
+// Part of Output:
+/*
+PRODUCER HAS PRODUCED 68111 IN FACTORY
+CONSUMER HAS CONSUMED 68111 FROM FACTORY
+PRODUCER HAS PRODUCED 68112 IN FACTORY
+CONSUMER HAS CONSUMED 68112 FROM FACTORY
+PRODUCER HAS PRODUCED 68113 IN FACTORY
+CONSUMER HAS CONSUMED 68113 FROM FACTORY
+PRODUCER HAS PRODUCED 68114 IN FACTORY
+CONSUMER HAS CONSUMED 68114 FROM FACTORY
+PRODUCER HAS PRODUCED 68115 IN FACTORY
+CONSUMER HAS CONSUMED 68115 FROM FACTORY
+PRODUCER HAS PRODUCED 68116 IN FACTORY
+CONSUMER HAS CONSUMED 68116 FROM FACTORY
+*/

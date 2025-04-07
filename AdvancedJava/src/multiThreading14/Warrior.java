@@ -63,3 +63,4 @@ public class Warrior implements Runnable {
 	}
 
 }
+// I think this may be the example for "circular wait", mutual exclusion, hold&wait & no preemption
