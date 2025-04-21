@@ -11,7 +11,7 @@ public class ArrayImplementation extends JPanel implements ActionListener {
 	JLabel sizeLabel, addPositionLabel, elementLabel, deletePositionLabel, arrayContentsLabel;
 	JTextField sizeText, addPositionText, elementText, deletePositionText, arrayContentsText;
 	JButton createArrayButton, insertButton, deleteButton, displayButton, backButton;
-	//JPanel panel;
+	//JPanel panel;     // Not needed, since we are extending itself..
 	Arrays array;
 	Navigator navigator;
 	
