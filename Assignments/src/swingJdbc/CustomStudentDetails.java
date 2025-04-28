@@ -1,5 +1,6 @@
 package swingJdbc;
 
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -16,7 +18,7 @@ public class CustomStudentDetails extends JPanel implements ActionListener {
 	JLabel headingLabel, idLabel, detailsLabel, idCbLabel, nameCbLabel, classCbLabel, marksCbLabel, genderCbLabel;
 	JTextField idText;
 	JCheckBox idCbox, nameCbox, classCbox, marksCbox, genderCbox;
-	JButton fetchButton, backButton;
+	JButton fetchButton, clearButton, backButton;
 	JTextArea displayArea;
 	Home home;
 	CustomSelect cs;
@@ -24,7 +26,7 @@ public class CustomStudentDetails extends JPanel implements ActionListener {
 	public CustomStudentDetails(Home home) {
 		this.home = home;
 		
-		setLayout(new FlowLayout());
+//		setLayout(new FlowLayout());
 		
 		headingLabel = new JLabel("<html> <h1 style='color:blue'>^^CUSTOM STUDENT DETAILS^^</h1> </html>");
 		idLabel = new JLabel("ID : ");
@@ -52,6 +54,8 @@ public class CustomStudentDetails extends JPanel implements ActionListener {
 		fetchButton.addActionListener(this);
 		backButton = new JButton("HOME");
 		backButton.addActionListener(this);
+		clearButton = new JButton("CLEAR");
+		clearButton.addActionListener(this);
 		
 		displayArea = new JTextArea(10, 35);
 		
@@ -67,6 +71,7 @@ public class CustomStudentDetails extends JPanel implements ActionListener {
 		add(genderCbox);
 		add(fetchButton);
 		add(displayArea);
+		add(clearButton);
 		add(backButton);
 		
 		
@@ -81,10 +86,33 @@ public class CustomStudentDetails extends JPanel implements ActionListener {
 			home.showCard("Navigator");
 		}
 		
-		else if (e.getSource() == fetchButton) {
+		else if (e.getSource() == clearButton) {
 			
-			int id = Integer.parseInt(idText.getText());
+			for (Component c : getComponents()) {
+				if (c instanceof JTextField) {
+					((JTextField) c).setText("");
+				}
+				else if (c instanceof JTextArea) {
+					((JTextArea) c).setText("");
+				}
+				else if (c instanceof JCheckBox) {
+					((JCheckBox) c).setSelected(false);
+				}
+			}
+		}
+		
+		else if (e.getSource() == fetchButton) {
+			try {
+			if (idText.getText().trim().isBlank()) {
+				JOptionPane.showMessageDialog(this, "Please enter the ID of the Student to fetch the Details");
+				return;
+			}
+			int id = Integer.parseInt(idText.getText().trim());
 			String columnString = "";
+			if (!idCbox.isSelected() && !nameCbox.isSelected() && !classCbox.isSelected() && !marksCbox.isSelected() && !genderCbox.isSelected()) {
+				JOptionPane.showMessageDialog(this, "Please select(checkbox) what fields to show.");
+				return;
+			}
 			if(idCbox.isSelected())  columnString = columnString + "ID, ";
 			if(nameCbox.isSelected())  columnString = columnString + "NAME, ";
 			if(classCbox.isSelected())  columnString = columnString + "CLASS, ";
@@ -94,11 +122,17 @@ public class CustomStudentDetails extends JPanel implements ActionListener {
 			cs = new CustomSelect(id, columnString);
 			
 			displayArea.setText(cs.colHeading + "\n");
-			displayArea.append(cs.colString + "\n");
+			displayArea.append(cs.colString);
 			
 			displayArea.setEditable(false);
 			
-			//add more....
-		}	
+			}
+			catch (NumberFormatException e1) {
+				JOptionPane.showMessageDialog(this, "Please enter only +ve integer for the ID field.");
+			}
+			catch (Exception e2) {
+				JOptionPane.showMessageDialog(this, "Some Error Occurred.");
+			}
+		}
 	}
 }

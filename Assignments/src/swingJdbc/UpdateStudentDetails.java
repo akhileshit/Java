@@ -1,11 +1,13 @@
 package swingJdbc;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -14,7 +16,7 @@ public class UpdateStudentDetails extends JPanel implements ActionListener {
 
 	JLabel headingLabel, idLabel, nameLabel, classLabel, marksLabel;
 	JTextField idText, nameText, classText, marksText;
-	JButton showButton, updateButton, backButton;
+	JButton showButton, updateButton, clearButton, backButton;
 	JTextArea displayArea;
 	Home home;
 	Select select;
@@ -40,6 +42,8 @@ public class UpdateStudentDetails extends JPanel implements ActionListener {
 		showButton.addActionListener(this);
 		updateButton = new JButton("UPDATE");
 		updateButton.addActionListener(this);
+		clearButton = new JButton("CLEAR");
+		clearButton.addActionListener(this);
 		backButton = new JButton("HOME");
 		backButton.addActionListener(this);
 		
@@ -58,6 +62,7 @@ public class UpdateStudentDetails extends JPanel implements ActionListener {
 		add(marksText);
 		add(updateButton);
 		add(displayArea);
+		add(clearButton);
 		add(backButton);
 		
 //		setSize()
@@ -68,48 +73,91 @@ public class UpdateStudentDetails extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		try {
 		if (e.getSource() == backButton) {
 			
 			home.showCard("Navigator");
 		}
 		
+		else if (e.getSource() == clearButton) {
+			
+			for (Component c : getComponents()) {
+				if (c instanceof JTextField) {
+					((JTextField) c).setText("");
+				}
+				else if (c instanceof JTextArea) {
+					((JTextArea) c).setText("");
+				}
+			}
+		}
+		
 		else if (e.getSource() == showButton) {
 			
-			int id = Integer.parseInt(idText.getText());
+			// id cannot be blank
+			if (idText.getText().trim().isBlank()) {
+				JOptionPane.showMessageDialog(this, "Please Enter the ID to Show.");
+				return;
+			}
+			int id = Integer.parseInt(idText.getText().trim());
 			select = new Select(id);
+			if (select.noId)  {
+				JOptionPane.showMessageDialog(this, ("ID " + id + " Does Not Exist."));
+				return;
+			}
 			
 			displayArea.setText(select.headerString + "\n");
 			displayArea.append(select.rowString);
 			
 			displayArea.setEditable(false);
 			
-			//add more....
 		}
 		
 		else if (e.getSource() == updateButton) {
 			
-			int id = Integer.parseInt(idText.getText());
+			// id cannot be blank
+			if (idText.getText().trim().isBlank()) {
+				JOptionPane.showMessageDialog(this, "Please Enter the ID.");
+				return;
+			}
+			// All fields cannot be blank
+			if (nameText.getText().trim().isBlank() && marksText.getText().trim().isBlank() && classText.getText().trim().isBlank()) {
+				JOptionPane.showMessageDialog(this, "Please enter atleast 1 field to Update.");
+				return;
+			}
+			int id = Integer.parseInt(idText.getText().trim());
 			String name = "";
 			Double marks = 0.0;
 			int clss = 0;
 			
 			HashMap<Object, Object> hm = new HashMap<>();
-			if (!nameText.getText().trim().isEmpty()) {
-				name = nameText.getText();
+			if (!nameText.getText().trim().isBlank()) {
+				name = nameText.getText().trim();
 				hm.put("name", name);
 			}
 			
-			if (!classText.getText().trim().isEmpty()) {
-				clss = Integer.parseInt(classText.getText());
+			if (!classText.getText().trim().isBlank()) {
+				clss = Integer.parseInt(classText.getText().trim());
+				if (clss < 1 || clss > 12) {
+					JOptionPane.showMessageDialog(this, "Please enter Class between 1-12.");
+					return;
+				}
 				hm.put("class", clss);
 			}
 			
-			if (!marksText.getText().trim().isEmpty()) {
-				marks = Double.parseDouble(marksText.getText());
+			if (!marksText.getText().trim().isBlank()) {
+				marks = Double.parseDouble(marksText.getText().trim());
+				if (marks < 0 || marks > 100) {
+					JOptionPane.showMessageDialog(this, "Please enter Marks between 0-100");
+					return;
+				}
 				hm.put("marks", marks);
 			}
 			
 			update = new Update(id, hm);
+			if (update.noId)  {
+				JOptionPane.showMessageDialog(this, ("ID " + id + " Does Not Exist."));
+				return;
+			}
 			
 			displayArea.setText("Updated Row : \n");
 			displayArea.append(update.headerString + "\n");
@@ -117,7 +165,11 @@ public class UpdateStudentDetails extends JPanel implements ActionListener {
 			
 			displayArea.setEditable(false);
 			
-			//add more....
+		}
+		
+		}
+		catch (NumberFormatException e1) {
+			JOptionPane.showMessageDialog(this, "Please check the Id/Class/Marks entered by you once.");
 		}
 		
 	}

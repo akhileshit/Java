@@ -15,7 +15,7 @@ public class Demo { // BufferedReader & BufferedWriter for FR & FW
 		FileReader fr = new FileReader(path1);
 		FileWriter fw = new FileWriter(path2, true);
 		
-		BufferedReader br = new BufferedReader(fr);
+		BufferedReader br = new BufferedReader(fr);  // Bind fr with br
 		BufferedWriter bw = new BufferedWriter(fw);
 		
 		String x;

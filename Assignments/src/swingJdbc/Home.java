@@ -15,7 +15,7 @@ public class Home {
 	
 	public Home() {
 		
-		frame = new JFrame();
+		frame = new JFrame("Student Management Application");
 		frame.setSize(430, 410);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());

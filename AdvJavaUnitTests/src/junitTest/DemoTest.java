@@ -14,3 +14,9 @@ public class DemoTest {
 		assertEquals(8, result);
 	}
 }
+
+
+//The package of Junit5 - org.junit.jupiter.api
+//The package of Junit4 - org.junit
+
+//right-click - RunAs - JUnit Test

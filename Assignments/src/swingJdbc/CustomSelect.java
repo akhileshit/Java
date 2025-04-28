@@ -36,7 +36,7 @@ public class CustomSelect {
 		System.out.println(colHeading); // final column names
 		while (rs.next()) {
 			for (String s : str) {
-				colString = colString + rs.getObject(s) + " | ";
+				colString = colString + rs.getObject(s) + " | ";   //getObject() will fetch specified column of any type 
 			}
 			System.out.println(colString);  // final column values
 		}

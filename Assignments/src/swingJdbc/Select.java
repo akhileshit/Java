@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 
 public class Select {
 	
-	String headerString;
-	String rowString;
+	//to help use in GUI
+	String headerString;  
+	String rowString; 
+	boolean noId = false;
 	
 	public Select(int id) {
 		Connection con = null;
@@ -25,11 +27,16 @@ public class Select {
 		
 		pstmt.execute();
 		rs = pstmt.getResultSet();
+		if (!rs.isBeforeFirst()) { //returns false if no rows
+			System.out.println("Id " + id + " does not exist.");
+			noId = true;
+			return;
+		} 
 		
 		headerString = "ID | NAME | CLASS | MARKS | GENDER";
 		System.out.println(headerString);
-		while (rs.next()) {  /////
-			rowString = rs.getInt(1) + " | " + rs.getString(2) + " | " + rs.getInt(3) + " | " + rs.getDouble(4) + " | " + rs.getString(5);
+		while (rs.next()) {  
+			rowString = rs.getInt(1) + "   " + rs.getString(2) + "   " + rs.getInt(3) + "   " + rs.getDouble(4) + "   " + rs.getString(5);
 			System.out.println(rowString);
 		}
 		
@@ -53,8 +60,8 @@ public class Select {
 	}
 	
 	// for Testing purpose.
-	public static void main(String[] args) {
-		
-		new Select(25);
-	}
+//	public static void main(String[] args) {
+//		
+//		new Select(99);
+//	}
 }

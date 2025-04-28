@@ -1,0 +1,21 @@
+Used:
+
+*Ducking & Rethrowing concept
+*Used only 1 Jframe throughout, but inside it 5 Jpanels (for 5 functionalities )
+-- helpful in maintaining 1 app session.
+-- adding all components(here Jpanel) to frame and displaying that frame.
+-- smooth transitions
+*JFrame, JPanel, JLabel, JTextArea, JButton, JTextField, JCheckBox, JScrollPane, JOptionPane, JViewPort -- (from javax.swing package).
+*BorderLayout, CardLayout, FlowLayout, Component, ActionEvent, ActionListener -- (from java.awt package).  (abstract window toolkit)
+*trim() before getting texts from textFields
+*validation for all textfields using if-else, Exceptions & pop-up warnings(gui)
+*Downcasting, instanceof concepts
+*Connection, DriverManager, PreparedStatement, Statement, ResultSet, SQlIntegrityConstraintViolationException -- (from java.sql package).
+*MySql-connector driver as jar file
+*Different Classes for different Operations & Different Classes for different GUI (JPanels)
+*HashMap (Key-Value) for Updates.
+*Main File/ App File -- Home.java (JFrame)
+*Default Jpanel inside Jframe -- Navigator.java
+
+
+-- Overall User-Friendly.

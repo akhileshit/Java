@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 public class Delete {
 	String headerString = "";
 	String rowString = "";
+	boolean noId = false;
 	
 	public Delete(int id) {
 		Connection con = null;
@@ -29,7 +30,10 @@ public class Delete {
 		int result = pstmt2.executeUpdate();
 	
 		if (result > 0)  System.out.println("Row Deleted.");
-		else  System.out.println("No Rows Deleted.");
+		else  {
+			noId = true;
+			System.out.println("No Rows Deleted.");
+		}
 		headerString = "ID | NAME | CLASS | MARKS | GENDER";
 		System.out.println(headerString);
 		while (rs.next()) {

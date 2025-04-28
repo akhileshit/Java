@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SelectAll {
+	String headerString;
+	String rowsString;
 	
 	public SelectAll() {
 		Connection con = null;
@@ -22,10 +24,13 @@ public class SelectAll {
 		String sql = "Select * from studentdetails";
 		rs = stmt.executeQuery(sql);
 		
-		System.out.println("ID | NAME | CLASS | MARKS | GENDER");
-		while (rs.next()) {  ////////////////
-			System.out.println(rs.getInt(1) + " | " + rs.getString(2) + " | " + rs.getInt(3) + " | " + rs.getDouble(4) + " | " + rs.getString(5));
+		headerString = "ID | NAME | CLASS | MARKS | GENDER";
+		System.out.println(headerString);
+		rowsString = "";
+		while (rs.next()) {  
+			rowsString += rs.getInt(1) + "  | " + rs.getString(2) + " | " + rs.getInt(3) + " | " + rs.getDouble(4) + " | " + rs.getString(5) + "\n";
 		}
+		System.out.println(rowsString);
 		System.out.println("done");
 		
 		}
@@ -47,8 +52,8 @@ public class SelectAll {
 	}
 	
 	// for testing purpose.
-	public static void main(String[] args) {
-		
-		new SelectAll();
-	}
+//	public static void main(String[] args) {
+//		
+//		new SelectAll();
+//	}
 }

@@ -3,13 +3,14 @@ package swingJdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Insert {
 	//Convertion to String to help display in JTextArea
 	String headerString;
 	String rowString;
 	
-	public Insert(int id, String name, int cls, double marks, String gender) {
+	public Insert(int id, String name, int cls, double marks, String gender) throws SQLIntegrityConstraintViolationException{
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -37,6 +38,9 @@ public class Insert {
 		else System.out.println("No Records Inserted.");
 		
 		}
+		catch (SQLIntegrityConstraintViolationException e1) {
+			throw e1;   // just to make it visible in GUI
+		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,8 +56,9 @@ public class Insert {
 		}
 	}
 	
-	public static void main(String[] args) {
-		
-		new Insert(25, "Abhishek", 12, 100, "Male");
-	}
+	// for testing purpose
+//	public static void main(String[] args) {
+//		
+//		new Insert(25, "Abhishek", 12, 100, "Male");
+//	}
 }

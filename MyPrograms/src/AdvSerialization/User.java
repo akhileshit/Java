@@ -13,12 +13,12 @@ public class User implements Serializable {
     }
 
     // Custom serialization logic
-    private void writeObject(ObjectOutputStream oos) throws IOException {
+    private void writeObject(ObjectOutputStream oos) throws IOException {  //writeObject() method
         oos.defaultWriteObject(); // Serialize non-transient fields
         oos.writeObject(encrypt(password)); // Encrypt the password before saving
     }
 
-    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException { //readObject() method
         ois.defaultReadObject(); // Deserialize non-transient fields
         this.password = decrypt((String) ois.readObject()); // Decrypt password
     }

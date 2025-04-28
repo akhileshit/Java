@@ -9,6 +9,8 @@ import java.util.HashMap;
 public class Update {
 	String headerString = "";
 	String rowString = "";
+	boolean noId = false;
+	int newValue;
 	
 	public Update(int id, HashMap<Object, Object> columnMap) {
 		Connection con = null;
@@ -25,7 +27,7 @@ public class Update {
 		// Establish the Connection
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kodnest?user=root&password=Aa@9343@m");
 		//************************************************************************************
-		// Create 1st Medium
+		// Create 1st Medium         //To fetch previous data
 		pstmt1 = con.prepareStatement("Select * from studentdetails where id = ?");
 		pstmt1.setInt(1, id);
 		
@@ -35,31 +37,46 @@ public class Update {
 		// Display 1st Result
 		if (!rs1.next()) {  
 			System.out.println("Id " + id + " Does Not Exist.");
+			noId = true;
 			return;
 		}
 		//************************************************************************************
-		// Create 2nd Medium
+		// Create 2nd Medium             //To Update
 		HashMap<Object, Object> hm = columnMap;
 		pstmt2 = con.prepareStatement("Update studentdetails set name = ?, class = ?, marks = ? where id = ?");
 		if (hm.containsKey("name"))  {
 			pstmt2.setObject(1, hm.get("name"));
+			if (hm.get("name").toString().equalsIgnoreCase(rs1.getString(2))) {
+				newValue++;
+			}
 		}else   { //else previous value
 			pstmt2.setString(1, rs1.getString(2));
 		}
 		
 		if (hm.containsKey("class")) {
 			pstmt2.setObject(2, hm.get("class"));
+			if ((Integer)hm.get("class") == rs1.getInt(3)) {
+				newValue++;
+			}
 		}else {
 			pstmt2.setInt(2, rs1.getInt(3));
 		}
 		
 		if (hm.containsKey("marks"))  {
 			pstmt2.setObject(3, hm.get("marks"));
+			if ((Double)hm.get("marks") == rs1.getDouble(4)) {
+				newValue++;
+			}
 		}else  {
 			pstmt2.setDouble(3, rs1.getDouble(4));
 		}
 		
 		pstmt2.setInt(4, id);
+		
+		if (newValue == 0) {  //if no new values provided, No Updation
+			System.out.println("Already Updated.");
+			return;
+		}
 		
 		// Execute 2nd Query
 		int nora = pstmt2.executeUpdate();
@@ -72,7 +89,7 @@ public class Update {
 			System.out.println("Row Not Updated.");
 		}
 		//************************************************************************************
-		// Create 3rd Medium
+		// Create 3rd Medium               //To fetch Updated data
 		pstmt3 = con.prepareStatement("Select * from studentdetails where id = ?");
 		pstmt3.setInt(1, id);
 		
