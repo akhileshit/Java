@@ -1,12 +1,11 @@
 package hibernate03.HibernateProject01;
 
-import org.hibernate.Session;
+import org.hibernate.Session; // All imported from org.hibernate package
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class App 
-{
+public class App { // Inserting Student Object Data to MySql Database using Hibernate
     public static void main( String[] args ) {
     	
     	//Loading the Configuration

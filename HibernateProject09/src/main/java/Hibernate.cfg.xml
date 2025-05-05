@@ -1,0 +1,34 @@
+<hibernate-configuration>
+
+	<session-factory>
+	
+		<!-- Database Connection Settings -->
+		
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property> -->
+		
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/koddb</property>
+		
+		<property name="hibernate.connection.username">root</property>
+		
+		<property name="hibernate.connection.password">Aa@9343@m</property>
+		
+		
+		<!-- Hibernate Settings -->
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<property name="hibernate.show_sql">true</property>
+		
+		<property name="hibernate.format_sql">true</property>
+		
+		
+		
+		<!-- Mapping Entity -->   <!-- 2 Entities specified since its about mappings(one-to-one) -->
+		
+		<mapping class="hibernate.manyToOne.HibernateProject09.Employee"/>
+		<mapping class="hibernate.manyToOne.HibernateProject09.Department"/>
+		
+		
+	</session-factory>
+
+</hibernate-configuration>

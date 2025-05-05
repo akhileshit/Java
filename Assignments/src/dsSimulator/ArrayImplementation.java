@@ -135,6 +135,8 @@ public class ArrayImplementation extends JPanel implements ActionListener {
 		//
 		else if (e.getSource() == displayButton) {
 			arrayContentsText.setText(array.toString());
+			
+			arrayContentsText.setEditable(false);
 		}
 		
 		else if (e.getSource() == backButton) {
