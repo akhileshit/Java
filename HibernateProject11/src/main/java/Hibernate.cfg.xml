@@ -28,8 +28,7 @@
 		
 		<!-- Mapping Entity -->   <!-- 2 Entities specified since its about mappings(one-to-one) -->
 		
-		<mapping class="hibernate.manyToOne.HibernateProject09.Employee"/>
-		<mapping class="hibernate.manyToOne.HibernateProject09.Department"/>
+		<mapping class="hibernate.hql.HibernateProject11.Product"/>
 		
 		
 	</session-factory>

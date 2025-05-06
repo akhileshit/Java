@@ -19,8 +19,8 @@ public class Department {
 	@Column
 	String name;
 	
-	@OneToMany(mappedBy = "dept", cascade = CascadeType.ALL)
-	List<Employee> al;     // Since in the perspective of Java if department can hv multiple employee => list(ArrayList) of employees
+	@OneToMany(mappedBy = "dept", cascade = CascadeType.ALL)   //mapped by the "Department" type ref var "dept" in Employee class
+	List<Employee> al;     // "Since in the perspective of Java if department can hv multiple employee => list(ArrayList) of employees" & this is only wrote in java & not for db table
 
 	public int getId() {
 		return id;

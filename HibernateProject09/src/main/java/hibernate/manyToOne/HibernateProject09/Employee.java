@@ -22,7 +22,7 @@ public class Employee { //Many employees can be in One department
 	int salary;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "dept_id")
+	@JoinColumn(name = "dept_id")  //name of the column in mysql(db) table. Even specifiying 'referencedColumnName' value here is a good practice.
 	Department dept;
 
 	public int getId() {
