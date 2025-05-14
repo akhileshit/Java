@@ -71,6 +71,6 @@ public class Demo { // Updating the database through Java Program (Inserting..)
 	600
 	PREPARED STATEMENT CREATED.
 	QUERY EXECUTED.
-	1 ROWS AFFECTED.
+	1 ROW(S) AFFECTED.
 	ALL RESOURCES CLOSED.
 */

@@ -2,15 +2,15 @@ package dsSimulator;
 
 public class LinkedLists {
 	
-	class Node {
-		Node prev;
-		Object data;
-		Node next;
+	private class Node {
+		private Node prev;
+		private Object data;
+		private Node next;
 	}
 	
-	Node first = null;
-	Node last = null;
-	int size = 0;
+	private Node first = null;
+	private Node last = null;
+	private int size = 0;
 	
 	
 	void add(Object data, int pos) {
@@ -146,7 +146,9 @@ public class LinkedLists {
 		}
 	}
 	
-	
+	void size() {
+		System.out.println("Size of LL = " + size);
+	}
 	
 	
 	public static void main(String[] args) {
@@ -156,10 +158,11 @@ public class LinkedLists {
 //		dll.delete(0);
 		dll.add(86, 1);
 		dll.add("Henry", 2);
-		dll.add(2.5, 3);
+		dll.add(2.5, 3);;
 		
 		dll.delete(22);
 		dll.display();
+		dll.size();
 //		dll.update(-5, 86);
 	}
 }

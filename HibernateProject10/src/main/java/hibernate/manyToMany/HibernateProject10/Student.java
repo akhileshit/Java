@@ -23,7 +23,7 @@ public class Student {
 	String name;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "course_student", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id")) // annotation with 3 attributes.
+	@JoinTable(name = "course_student", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id")) // annotation with 3 attributes. We know joincolums, inverse.. optional attributes (only when column names given by hibernate is same as we give. or else to specify the names we actually gave in mysql this is mandatory and always good practice to write)
 	List<Course> courses;
 
 	

@@ -39,14 +39,14 @@ public class Demo { // To perform any CRUD Queries on database through java     
 		System.out.println("QUERY EXECUTED.");
 		// Display the Result
 		if(result == true) {
-			rs = pstmt.getResultSet();
+			rs = pstmt.getResultSet(); //getResultSet()
 			System.out.println("RESULT: ");
 			while(rs.next()) {
 				System.out.println(rs.getInt("id") + " " + rs.getInt("nos"));
 			}
 		}
 		else {
-			int nora = pstmt.getUpdateCount();
+			int nora = pstmt.getUpdateCount(); //getUpdateCount()
 			System.out.println(nora + " ROW(S) AFFECTED.");
 		}
 		

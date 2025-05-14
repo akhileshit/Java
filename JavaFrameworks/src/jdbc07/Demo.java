@@ -53,7 +53,7 @@ public class Demo { // Maintaining all ACID properties for a Transaction  (All-O
 			//Its time to change the code inside a catch block!!!!
 			try {
 				System.err.println("TRANSACTION FAILED.");
-				con.rollback();
+				con.rollback(); //rollback()
 				System.out.println("DON'T WORRY. YOUR MONEY IS SAFE WITH THE KODBANK.");
 			} 
 			catch (SQLException e1) {

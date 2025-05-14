@@ -13,7 +13,7 @@ import org.hibernate.query.Query;
  */
 public class App {
 	
-    public static void main(String[] args) {
+    public static void main(String[] args) { //Hibernate Query Language. (like sql but for java(using class_names and its fields!!!)
         
     	SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	
@@ -22,7 +22,7 @@ public class App {
     	Transaction transaction = session.beginTransaction();
     	
     	
-    	String hql = "from Product where cost > 40000";
+    	String hql = "from Product where cost > 40000";  //Product : capital "P" only
     	//String hql = "from Product where cost > :param1";
     	Query<Product> query = session.createQuery(hql, Product.class);
     	//query.setParameter("param1", 40000);

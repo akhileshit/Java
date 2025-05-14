@@ -20,6 +20,7 @@ public class Course {
 	@Column
 	String name;
 	
+	//we can make bear the responsibility to any one entity,  hence given to only student entity
 	@ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL)    //here in many-to-many this is like saying "'courses' ref var in Student table will take care of joining necessary columns & tables specified"
 	List<Student> students;
 

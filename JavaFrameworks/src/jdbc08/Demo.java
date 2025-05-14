@@ -28,10 +28,10 @@ public class Demo { // Calling Stored Procedures
 			int acc = scan.nextInt();
 			cstmt.setInt(1, acc);
 			
-			boolean result = cstmt.execute(); // only "execute()" becaz we may don't know what type queries inside stored procedures(when we don't know we use execute())
+			boolean result = cstmt.execute(); // only "execute()" becaz we may don't know what type queries are written inside stored procedures(when we don't know we use execute())
 			if (result == true) {
 				System.out.println("RESULT: ");
-				rs = cstmt.getResultSet();
+				rs = cstmt.getResultSet(); //getResultSet()
 				while (rs.next()) {
 					System.out.println("========");
 					System.out.println(rs.getInt("accNo") + " | " + rs.getString("name") + " | " + rs.getInt("balance"));
@@ -39,7 +39,7 @@ public class Demo { // Calling Stored Procedures
 				}
 			}
 			else {
-				int nora = cstmt.getUpdateCount();
+				int nora = cstmt.getUpdateCount(); //getUpdateCount()
 				System.out.println(nora + " ROWS AFFECTED.");
 			}
 		}

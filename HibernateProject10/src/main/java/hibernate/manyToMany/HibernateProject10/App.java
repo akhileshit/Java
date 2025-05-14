@@ -1,3 +1,4 @@
+//28/11/24
 package hibernate.manyToMany.HibernateProject10;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import org.hibernate.cfg.Configuration;
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) { //Many to Many
         
     	SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	
@@ -22,16 +23,16 @@ public class App {
     	
     	
     	Student s1 = new Student();
-    	s1.setName("Tamanna");
+    	s1.setName("Accha");
     	
     	Student s2 = new Student();
-    	s2.setName("Anushka");
+    	s2.setName("Sun");
     	
     	Course c1 = new Course();
-    	c1.setName("Java");
+    	c1.setName("MongoDB");
     	
     	Course c2 = new Course();
-    	c2.setName("Python");
+    	c2.setName("Oracle");
     	
     	List<Course> courses = new ArrayList<>();
     	courses.add(c1);
