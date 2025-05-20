@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaBuilder; //All JPA imports
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
@@ -35,7 +35,7 @@ public class App {
 //    	cq.select(root).where(cb.like(root.get("name"), "arun%"));
     	 
     	//STILL THERE.............
-    	//refer tutorials point,chat
+    	//refer tutorials point(old),chat,baeldung(best)
     	
     	
     	

@@ -4,7 +4,7 @@ package hibernate.caching.HibernateProject12;
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) { 
+    public static void main(String[] args) { // Caching in Hibernate (see chat)
 
     		/*
     		Caching in Hibernate. (Our Assignment)

@@ -22,4 +22,4 @@ public class SendPage extends HttpServlet { // Sending whole .html file as Respo
 
 }
 
-// wrote dashboard.html file seperately
+// wrote dashboard.html file seperately inside 'webapp' folder

@@ -22,7 +22,7 @@ public class App {
     	Transaction transaction = session.beginTransaction();
     	
     	
-    	String hql = "from Product where cost > 40000";  //Product : capital "P" only
+    	String hql = "from Product where cost > 40000";  //Product : capital "P" only    //Even HQL is specified as String type like SQL    // Want to write dynamic queries?? Go for Criteria API in Hibernate!!
     	//String hql = "from Product where cost > :param1";
     	Query<Product> query = session.createQuery(hql, Product.class);
     	//query.setParameter("param1", 40000);

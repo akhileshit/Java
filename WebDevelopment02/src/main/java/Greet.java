@@ -44,9 +44,10 @@ public class Greet extends HttpServlet { // Sending
 // Remove all the auto generated code inside our Servlet 'for now' (not required)
 // "NO MAIN METHOD, NO JVM. NOTHING" everything is taken care by the Master(The Showman)-  "Web Container" (Which is directly inside Tomcat server)
 // And inside that Web Container we have(deploy) our project , inside which we have our servlets, html docs, web.xml,....
-// Web-Container knows all about the application by reading the web.xml file inside the project!.
-// override the service() method of servlet and the your business logic there.
+// Web-Container knows all about the application by reading the web.xml file inside the project!.(web.xml was automatically wrote by our dynamic web project to us!)
+// override the service() method of servlet and write your business logic there.
 
 // 1st this application(project) failed to run on server saying invalid ports
 // So i edited server.xml file in tomcat installation folder (conf)....(made shoutdown port from -1 to 8001). -1 is not good.
 // u can also change running port below that to anything u want (free ports)
+// right-click on the project itself and run-on-server by choosing appropriate server.
