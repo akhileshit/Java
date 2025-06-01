@@ -83,6 +83,6 @@ public class GetResults extends HttpServlet { // A Simple Full-Stack website usi
 	}
 }
 
-//06/12/24
+//06/12/24 (web05-06)
 // But we have to specify this servlet name when website loads as before
 // where to add mysql-connector??  It's  inside the server library!!!!!. Since it is the master which takes responsibility completely

@@ -60,3 +60,6 @@ public class App {
     	sessionFactory.close();
     }
 }
+
+//28/11/24
+// includes (HibernateProject10-13 & many more if written in future (hiber..cache...))

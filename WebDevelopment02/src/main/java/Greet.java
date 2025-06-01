@@ -30,6 +30,7 @@ public class Greet extends HttpServlet { // Sending
 	}
 }
 /*
+28th was HibernateProject...
 29/11/24 started with web-development
 	downloaded web-server software Apache Tomcat 9. (for all web-dev project done in future)
 	changed perspective t java EE
@@ -40,7 +41,8 @@ public class Greet extends HttpServlet { // Sending
 	Assig: told to konw completely about GenericServlet class/interface/...?
 */
 
-// Created this Servlet (Don't create class and extend HttpServlet. Just create New Servlet itself(They said)
+//05/12/24
+// Created this Servlet (Don't create class and extend HttpServlet. Just create New Servlet itself(They said) [becaz to fill web.xml automatically]
 // Remove all the auto generated code inside our Servlet 'for now' (not required)
 // "NO MAIN METHOD, NO JVM. NOTHING" everything is taken care by the Master(The Showman)-  "Web Container" (Which is directly inside Tomcat server)
 // And inside that Web Container we have(deploy) our project , inside which we have our servlets, html docs, web.xml,....

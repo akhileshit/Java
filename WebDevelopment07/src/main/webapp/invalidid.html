@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<h1 style="color:red"> STUDENT LOGIN </h1>
+	<form action="http://localhost:8000/WebDevelopment07/LoginServlet" method="post">  <!-- specified as "get" (sends this to doGet() method in LoginServlet -->
+		<table>
+			<tr>
+				<td colspan="2" style="color:green">INVALID USERID OR PWD PLEASE TRY AGAIN</td>
+			<tr>
+				<td>ID:</td>  
+				<td><input type="text" name="uid" required placeholder="Enter Your ID" ><td>
+			</tr> 
+			<tr>
+				<td>PASSWORD:</td>  
+				<td><input type="password" name="upwd" required placeholder="Enter Your PASSWORD" ><td>
+			</tr> 
+			<tr>
+				<td><input type="submit"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

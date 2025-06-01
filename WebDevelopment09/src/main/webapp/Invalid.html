@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<h2>Login Form</h2>
+    <form action="LoginController" > <!-- or can give full address(url) of LoginController -->
+        <table border="0" cellpadding="10">
+        	
+            <tr>
+                <td colspan = "2" style="color:red">INVALID USERID OR PASSWORD. PLEASE RETRY</td>
+            </tr>
+            <tr>
+                <td><label for="userid">KodNest ID:</label></td>
+                <td><input type="text" id="userid" name="userid" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Login</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    New user? <a href="SignUp.html">Register here</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

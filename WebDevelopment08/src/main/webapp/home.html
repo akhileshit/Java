@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XYZ UNIVERSITY</title>
+</head>
+<body>
+	<h1 style="color:red">WELCOME TO XYZ UNIVERSITY</h1>
+	<form action="http://localhost:8000/WebDevelopment08/FirstServlet"> <!-- this forms data is sent to this servlet where the service()/doGet()/doPost() method accepts it as a httpServletRequest req -->
+		<table>
+			<tr>
+				<td><label for="id">ID: </label></td>  <td><input type="text" name="uid" id="id" required placeholder="Enter Your ID"></td> <!-- id entered here is stored in name(uid) attribute and attached to the request-string /address and sent to the specified address(in action) when clicked submit-->
+			</tr>
+			<tr>
+				<td><input type="submit"></td>
+			</tr>	
+		</table>
+	</form>
+</body>
+</html>

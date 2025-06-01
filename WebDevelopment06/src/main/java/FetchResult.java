@@ -113,3 +113,7 @@ public class FetchResult extends HttpServlet { // A Simple proper Full-Stack Web
 // Wrote(overrode) these 3 methods as usual
 // removed some welcome-files in web.xml. Only added the page to be shown when the website loads!!
 // wrote 2 seperate html files: invalidid.html, login.html
+
+//06/12/24 (web05-06)
+
+//end

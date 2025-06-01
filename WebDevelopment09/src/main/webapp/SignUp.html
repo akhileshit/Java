@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SignUp</title>
+</head>
+<body>
+	<h2>Signup</h2>
+    <form action="RegistrationController"> <!-- or can give full address(url) of RegistrationController -->
+        <table border="0" cellpadding="10">
+            <tr>
+                <td><label for="userid">KodNest ID:</label></td>
+                <td><input type="text" id="userid" name="userid" required></td>
+            </tr>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="text" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone:</label></td>
+                <td><input type="text" id="phone" name="phone" required></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label>
+                        <input type="checkbox" name="terms" required>
+                        I agree to the <a href="https://www.kodnest.com/terms" target="_blank">Kodnest Terms and Conditions</a>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Sign Up</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    Already registered? <a href="login.html">Login here</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
