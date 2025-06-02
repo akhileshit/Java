@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="opsys" class="com.example.demo.OS" />
+	
+	<bean id="lap" class="com.example.demo.Laptop">
+		<property name="os" ref="opsys" />    <!-- SETTER INJECTION -->      <!-- ref => bean id of which the object shd be created by spring.-->
+	</bean>
+</beans>
+
+
+<!-- property "name" => name given to the property/field of the Laptop object-->
+<!-- we are giving the name of the 'field' for the 'setter' injection. what!!! its quite unusual right.-->
+<!-- hence it is called framework. we have to follow the predefined rules (maybe that's the limitations of frameworks-->
+<!-- but apart from that limitations they are incredibly powerful-->

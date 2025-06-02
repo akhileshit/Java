@@ -16,6 +16,7 @@ public class DemoTest { //Test LifeCycle Annotations
 		Demo d = new Demo();
 		int result = d.add(3, 4);
 		assertEquals(7, result);
+		System.out.println("TESTADD1 RESULT IS OUT.");
 	}
 	
 	@Test
@@ -24,6 +25,7 @@ public class DemoTest { //Test LifeCycle Annotations
 		Demo d = new Demo();
 		int result = d.add(5, 9);
 		assertEquals(14, result);
+		System.out.println("TESTADD2 RESULT IS OUT.");
 	}
 	
 	
