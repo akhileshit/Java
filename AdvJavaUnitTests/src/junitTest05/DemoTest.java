@@ -52,7 +52,7 @@ public class DemoTest { // Standard Assertions
 }
 
 //Don't get overwhelmed by the syntax of assertAll(string, Executable)[Next Topic]. Just concentrate on the assertions!
-// Also see multiple errors(if any) in Failure Trace tab (to get perfect understanding)
+// Also see multiple errors(if any) in "Failure Trace" tab (to get perfect understanding)
 
-// Also find out the diff b/w org.junit.Assert.* & org.junit.jupiter.api.Assertions.* 
-// Also find out why all imports are static
+// Also find out the diff b/w org.junit.Assert.* & org.junit.jupiter.api.Assertions.*        [1 for Junit4 and 1 for Junit 5]
+// Also find out why all imports are static          [So that u can use those methods w/o prefixing with class names!!]
