@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Login</title></head>
+	
+	<body>
+		<form action="/api/login" method="post">
+			<label for="username">USERNAME:  </label>
+			<input type="text" id="username" name="username" placeholder="Username" />
+			<label for="password">PASSWORD:  </label>
+			<input type="password" id="password" name="password" placeholder="Password" />
+			<input type="submit" value="Login"/>
+			
+			<p th:if="${loginError}" th:text="${loginError}"></p>
+		</form>
+	</body>
+</html>

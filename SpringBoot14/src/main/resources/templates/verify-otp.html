@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Verify OTP</title></head>
+	
+	<body>
+		<form action="/api/verify-otp" method="post">
+			<label for="otp">OTP:  </label>
+			<input type="text" id="otp" name="otp" placeholder="Enter otp here" />
+			<input type="submit" />
+			
+			<p th:if="${verifyError}" th:text="${verifyError}"></p>
+		</form>
+	</body>
+</html>
+	
