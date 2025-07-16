@@ -45,7 +45,7 @@ public class UserController {
 		return jwtUtils.generateToken(userDetails.getUsername());
 		
 		} catch (StackOverflowError e) {
-			System.out.println("Yes StackOverFlow occurred..." + e);
+			System.out.println("Yes StackOverFlow occurred..." + e); //it stopped coming when i used inbuilt UserDetailsService
 		}
 		return "Yes Some Exception occurred..";
 	}
