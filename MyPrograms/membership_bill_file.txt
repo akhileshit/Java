@@ -1,0 +1,8 @@
+3
+Grace Platinum 2
+Pasta 600
+Soup 500
+Harry Gold 1
+Tea 150
+Ivy Regular 1
+Coke 90
