@@ -1,0 +1,13 @@
+6
+idA 1 3 BB
+idA 2 3 CC
+idB 0 2 Hello
+idA 0 3 AA
+idB 1 2 World
+idC 0 1 Solo
+5
+m1 0 2 Hii
+m1 1 2 !
+m2 0 3 A
+m2 2 3 C
+m2 1 3 B

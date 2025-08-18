@@ -1,5 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
@@ -13,7 +18,7 @@ public class PacketRetrieval {
 			int n = sc.nextInt();
 			sc.nextLine();
 			
-			Set<Messager> packets = new TreeSet<>();
+			Map<String, ArrayList<PacketInfo>> idMap = new HashMap<>();
 			for (int i=0; i<n; i++) {
 				String[] rawInput  = sc.nextLine().split(" ");
 				String messageId = rawInput[0];
@@ -21,8 +26,28 @@ public class PacketRetrieval {
 				int packetCount = Integer.parseInt(rawInput[2]);
 				String message = rawInput[3];
 				
-				Messager packet = new Messager(messageId, seq, packetCount, message);
-				packets.add(packet);
+				PacketInfo packetInfo = new PacketInfo(seq, packetCount, message);
+				
+				if (!idMap.containsKey(messageId)) idMap.put(messageId, new ArrayList<PacketInfo>());
+				idMap.get(messageId).add(packetInfo);
+			}
+				
+			ArrayList<String> idList = new ArrayList<>();
+			idList.addAll(idMap.keySet());
+			Collections.sort(idList);
+			for (String id : idList) {
+				ArrayList<PacketInfo> packetInfoList = idMap.get(id);
+				int missingCount = packetInfoList.get(0).packetCount - packetInfoList.size();
+				if (missingCount != 0) {
+					System.out.println(id + " MISSING " + missingCount);
+				} else {
+					String reconstructedText = "";
+					Collections.sort(packetInfoList);
+					for (PacketInfo packetInfo: packetInfoList) {
+						reconstructedText += packetInfo.message;
+					}
+					System.out.println(id + " OK " + reconstructedText);
+				}
 			}
 			
 			
@@ -32,23 +57,24 @@ public class PacketRetrieval {
 	}	
 }
 
-class Messager implements Comparable<Messager>{
-	String messageId;
+class PacketInfo implements Comparable<PacketInfo>{
 	int seq;
 	int packetCount;
 	String message;
 	
-	public Messager(String messageId, int seq, int packetsCount, String message) {
-		this.messageId = messageId;
+	public PacketInfo(int seq, int packetCount, String message) {
 		this.seq = seq;
-		this.packetCount = packetsCount;
+		this.packetCount = packetCount;
 		this.message = message;
 	}
-
+	
 	@Override
-	public int compareTo(Messager other) {
-		// TODO Auto-generated method stub
-		return messageId.compareTo(other.messageId);
+	public String toString() {
+		return "{seq: " + seq + ", packetCount: " + packetCount + ", message: " + message + "}";
 	}
 	
+	@Override
+	public int compareTo(PacketInfo other) {
+		return Integer.compare(this.seq, other.seq);
+	}
 }
