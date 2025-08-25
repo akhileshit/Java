@@ -50,7 +50,6 @@ public class PacketRetrieval {
 				}
 			}
 			
-			
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
